@@ -1,8 +1,10 @@
 local configIO = {}
 
-function configIO.convertFields(fields, ts)
+function configIO.convertFields(fields)
+    local reported = from_json(fields.reported)
+
     local channels = {}
-    for idx, field in ipairs(fields) do
+    for idx, field in ipairs(reported) do
       channels[field] = {
         display_name = field,
         properties = {
@@ -15,7 +17,7 @@ function configIO.convertFields(fields, ts)
     return {
       set = config_io,
       reported = config_io,
-      timestamp = ts
+      timestamp = fields.timestamp
     }
 end
 
