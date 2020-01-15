@@ -13,26 +13,26 @@ if event.payload ~= nil then
       pl.values['data_in'] = pl.values['states']
     end
     
-    if pl.values['fields'] ~= nil then
-      local fields = from_json(pl.values['fields'])
-      if type(fields) == "table" then
-        local channels = {}
-        for idx, field in ipairs(fields) do
-          channels[field] = {
-            display_name = field,
-            properties = {
-              data_type = "NUMBER"
-            }
-          }
-        end
-        local config_io = to_json({ channels = channels })
-        pl.values['config_io'] = config_io
-        Device2.setIdentityState({
-          identity=event.identity,
-          config_io = config_io
-        })
-      end
-    end
+    -- if pl.values['fields'] ~= nil then
+    --   local fields = from_json(pl.values['fields'])
+    --   if type(fields) == "table" then
+    --     local channels = {}
+    --     for idx, field in ipairs(fields) do
+    --       channels[field] = {
+    --         display_name = field,
+    --         properties = {
+    --           data_type = "NUMBER"
+    --         }
+    --       }
+    --     end
+    --     local config_io = to_json({ channels = channels })
+    --     pl.values['config_io'] = config_io
+    --     Device2.setIdentityState({
+    --       identity=event.identity,
+    --       config_io = config_io
+    --     })
+    --   end
+    -- end
   end
 end
 
