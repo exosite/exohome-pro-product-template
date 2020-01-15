@@ -11,7 +11,7 @@
       version: 1.0.0
     
     options:
-      safeNamespace: vendor
+    #   safeNamespace: vendor
       safeConfigs:
         - device2.resources
     
@@ -36,4 +36,4 @@
       include: '**/*.lua'
       exclude: ['*_test.lua', '*_spec.lua']
     
-    init_script: init.lua
+    # init_script: init.lua
