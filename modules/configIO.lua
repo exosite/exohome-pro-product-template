@@ -1,6 +1,6 @@
 local configIO = {}
 
-function configIO.convertFields(fields)
+function configIO.convertFields(fields, ts)
     local channels = {}
     for idx, field in ipairs(fields) do
       channels[field] = {
@@ -15,7 +15,7 @@ function configIO.convertFields(fields)
     return {
       set = config_io,
       reported = config_io,
-      timestamp = identityState.fields.timestamp
+      timestamp = ts
     }
 end
 
