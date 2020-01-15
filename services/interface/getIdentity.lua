@@ -1,10 +1,10 @@
 local identity = Device2.getIdentity(operation)
 if identity.error then return identity end
 
-if identity.state.config_io ~= nil then
-  local configIO = identity.state.config_io
-  configIO.reported = configIO.set
-  identity.state.config_io = configIO
+local configIO = require("configIO")
+if identity.state.fields ~= nil then
+  local fields = from_json(identity.state.fields.reported)
+  identity.state.config_io = configIO.convertFields(fields)
 end
 
 return identity
