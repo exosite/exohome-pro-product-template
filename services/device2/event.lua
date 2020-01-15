@@ -6,6 +6,7 @@
 
 log.debug('BEFORE:' .. to_json(event))
 
+local configIO = require("configIO")
 if event.payload ~= nil then
   for idx, pl in ipairs(event.payload) do
     -- copy 'states' to 'data_in'
@@ -13,26 +14,16 @@ if event.payload ~= nil then
       pl.values['data_in'] = pl.values['states']
     end
     
-    -- if pl.values['fields'] ~= nil then
-    --   local fields = from_json(pl.values['fields'])
-    --   if type(fields) == "table" then
-    --     local channels = {}
-    --     for idx, field in ipairs(fields) do
-    --       channels[field] = {
-    --         display_name = field,
-    --         properties = {
-    --           data_type = "NUMBER"
-    --         }
-    --       }
-    --     end
-    --     local config_io = to_json({ channels = channels })
-    --     pl.values['config_io'] = config_io
-    --     Device2.setIdentityState({
-    --       identity=event.identity,
-    --       config_io = config_io
-    --     })
-    --   end
-    -- end
+    -- fake config_io data-in, to update exosense config_io cache
+    if pl.values['fields'] ~= nil then
+      local state = {
+        set = pl.values['fields'],
+        reported = pl.values['fields'],
+        timestamp = pl.timestamp
+      }
+      local converted = configIO.convertFields(state)
+      pl.values['config_io'] = converted.reported
+    end
   end
 end
 
