@@ -8,7 +8,8 @@ function configIO.convertFields(fields)
       channels[field] = {
         display_name = field,
         properties = {
-          data_type = "NUMBER"
+          data_type = "NUMBER",
+          control = true
         }
       }
     end
