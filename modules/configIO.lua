@@ -23,6 +23,10 @@ function configIO.convertFields(fields)
             data_type = 'NUMBER',
             control = true,
           },
+          protocol_config = {
+            report_rate = 30000,
+            timeout = 30000
+          }
         }
         return o
       end, {})
