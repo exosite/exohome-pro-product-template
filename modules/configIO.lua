@@ -22,6 +22,7 @@ function configIO.convertFields(fields)
             primitive_type = 'NUMERIC',
             data_type = 'NUMBER',
             control = true,
+            locked = true,
           },
           protocol_config = {
             report_rate = 30000,
