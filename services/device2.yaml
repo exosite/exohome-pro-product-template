@@ -1,5 +1,6 @@
 protocol:
-    name: "onep:v1/http"
+    name: "murano:v1/mqtt"
+    port: "443"
 provisioning:
     auth_type: token
 
