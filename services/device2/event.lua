@@ -9,9 +9,10 @@ log.debug('BEFORE:' .. to_json(event))
 local configIO = require("configIO")
 if event.payload ~= nil then
   for idx, pl in ipairs(event.payload) do
-    -- copy 'states' to 'data_in'
+    -- copy 'states' to 'data_in' and 'data_out' (for notify UI ack)
     if pl.values['states'] ~= nil then
       pl.values['data_in'] = pl.values['states']
+      pl.values['data_out'] = pl.values['states']
     end
     
     -- fake config_io data-in, to update exosense config_io cache
