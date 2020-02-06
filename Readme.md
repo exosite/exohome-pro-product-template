@@ -14,7 +14,7 @@ The iot connector created by this template will be able to connect ExoHome devic
 
 ## Limitations / Todos
 
-* Only support number channel. (Because current ExoHome real cases are only use number type)
+* Only support channels data_type is number. (Because current ExoHome real cases are only use number type)
 
 ## How to use
 
