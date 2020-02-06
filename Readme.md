@@ -25,3 +25,11 @@ The iot connector created by this template will be able to connect ExoHome devic
 5. The ExoHome device should report "fields" resource, then ExoSense will see the config_io automatically. (Dynamically generated while ExoSense call Device2.listIdentities and other related APIs)
 6. Create assets and dashboards in the ExoSense from the device. 
 7. When the device report data (with ExoHome protocol), the ExoHome & ExoSense should see same reported value.
+
+## Important codes: 
+
+* services/device2/event.lua : handle data-in and simulate ExoSense resources. 
+* services/device2.yaml : default resources.
+* modules/configIO.lua : the logic for converting config_io 
+* modules/interfaceOverload.lua : the Device2 API overloaded function body. The entry points are in `services/interface/*.lua`
+
