@@ -1,6 +1,6 @@
 protocol:
     name: "murano:v1/mqtt"
-#    port: 443
+    port: 443
 provisioning:
     auth_type: token
 
