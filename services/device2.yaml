@@ -85,3 +85,9 @@ resources:
         format: string
         settable: false
         unit: ''
+    provisioned_time:
+        allowed: []
+        format: number
+        settable: true
+        sync: false
+        unit: ''
