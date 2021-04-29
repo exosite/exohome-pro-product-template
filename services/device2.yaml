@@ -15,6 +15,12 @@ resources:
         format: string
         settable: false
         unit: ''
+    connected:
+        allowed: []
+        format: number
+        settable: true
+        sync: false
+        unit: ''
     config_io:
         allowed: []
         format: string
@@ -45,6 +51,12 @@ resources:
         format: string
         settable: true
         unit: ''
+    model:
+        allowed: []
+        format: string
+        settable: true
+        sync: false
+        unit: ''
     module:
         allowed: []
         format: string
@@ -59,6 +71,12 @@ resources:
         allowed: []
         format: string
         settable: true
+        unit: ''
+    provisioned_time:
+        allowed: []
+        format: number
+        settable: true
+        sync: false
         unit: ''
     report_config:
         allowed: []
@@ -84,10 +102,4 @@ resources:
         allowed: []
         format: string
         settable: false
-        unit: ''
-    provisioned_time:
-        allowed: []
-        format: number
-        settable: true
-        sync: false
         unit: ''
