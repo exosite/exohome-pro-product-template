@@ -65,6 +65,13 @@ function configIO.combineOtherChannels(channels)
       primitive_type = "STRING"
     }
 
+    local properties_location = {
+      data_type = "LOCATION",
+      data_unit = "LAT_LONG",
+      locked = true,
+      primitive_type = "JSON"
+    }
+
     local other_channels = {
       brand = {
         display_name = "brand",
@@ -95,6 +102,11 @@ function configIO.combineOtherChannels(channels)
         display_name = "local_ip",
         protocol_config = protocol_config,
         properties = properties_string
+      },
+      location = {
+        display_name = "location",
+        protocol_config = protocol_config,
+        properties = properties_location
       },
       mac_address = {
         display_name = "mac_address",
