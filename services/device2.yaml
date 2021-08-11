@@ -93,6 +93,12 @@ resources:
         format: string
         settable: true
         unit: ''
+    set_config_io_counter:
+        allowed: []
+        format: number
+        settable: true
+        sync: false
+        unit: ''
     states:
         allowed: []
         format: string
