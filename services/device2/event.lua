@@ -2,7 +2,6 @@
 -- This script handles incoming messages from devices through the Device2 service event.
 -- See http://docs.exosite.com/reference/services/device2/#event.
 local configIO = require("configIO")
-local ipToGeo = require("ipToGeo")
 local M = require('moses')
 
 log.debug('BEFORE:' .. to_json(event))
@@ -25,8 +24,7 @@ if event.payload ~= nil then
         fields = resources.fields.reported
       end
 
-      local location = ipToGeo.convertIP(event.ip)
-      local resources_data = to_json(M.extend(states, esh, module_data, provisioned_time, location ))
+      local resources_data = to_json(M.extend(states, esh, module_data, provisioned_time ))
 
       pl.values['data_in'] = resources_data
       pl.values['data_out'] = resources_data
